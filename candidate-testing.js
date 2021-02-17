@@ -51,11 +51,10 @@ function gradeQuiz(candidateAnswers) {
     }
 
     console.log(`${Number([i]) + 1}) ${questions[i]} \n Your answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]} \n `);
-    
     i++;
   }
 
-  if (grade >= 4) {
+  if (grade >= 80) {
     status = "PASSED";
   } else {
     status = "FAILED";
