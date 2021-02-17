@@ -7,18 +7,17 @@ let count;
 let question="Who was the first American woman in space? .";
 let correctAnswer='Sally Ride';
 let candidateAnswer=[];
-let questions=["Who was the first American woman in space?",
-            "True or false: 5000 meters = 5 kilometers.",
-            "(5 + 3)/2 * 10 = ?",
-            "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?",
-            "What is the minimum crew size for the ISS?"];
+let questions=["Who was the first American woman in space? ",
+            "True or false: 5000 meters = 5 kilometers. ",
+            "(5 + 3)/2 * 10 = ? ",
+            "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
+            "What is the minimum crew size for the ISS? "];
 let correctAnswers=["Sally Ride",
 "True",
 "40",
 "Trajectory",
 "3"];
 let candidateAnswers=[];
-console.log("********  Assignment 01 *********");
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
 let info = input.question("Enter condidate name : ");
@@ -41,7 +40,6 @@ function gradeQuiz(candidateAnswers) {
   let status = ''
 
   console.log(`Candidate Name: ${candidateName}`);
-
   while (i < questions.length) {
     
     if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()) {
@@ -49,7 +47,6 @@ function gradeQuiz(candidateAnswers) {
     } else {
       grade;
     }
-
     console.log(`${Number([i]) + 1}) ${questions[i]} \n Your answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]} \n `);
     i++;
   }
