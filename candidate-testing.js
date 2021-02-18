@@ -22,7 +22,7 @@ function askForName() {
   candidateName = input.question("Please Enter your name: ")
 }
 function askQuestion() {
-  //  1.2b: Ask candidate the question and assign the response as candidateAnswer //
+  //  1.2b: Ask candidate  question and assign the response as candidateAnswer //
   //return candidateAnswer = input.question(question);
   let i = 0;
   while (i < questions.length) {
@@ -31,7 +31,7 @@ function askQuestion() {
   }
 }
 
-function gradeQuiz(candidateAnswers) {
+function gradeQuiz(candidaeteAnswers) {
 
   //  1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   let i = 0;
