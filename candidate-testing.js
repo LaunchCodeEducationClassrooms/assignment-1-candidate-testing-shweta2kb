@@ -12,7 +12,7 @@ let questions=["Who was the first American woman in space? ",
             "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
             "What is the minimum crew size for the ISS? "];
 let correctAnswers=["Sally Ride",
-"True",
+"true",
 "40",
 "Trajectory",
 "3"];
@@ -21,43 +21,43 @@ function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question("Please Enter your name: ")
 }
-function askQuestion() {
-  //  1.2b: Ask candidate  question and assign the response as candidateAnswer //
-  //return candidateAnswer = input.question(question);
-  let i = 0;
-  while (i < questions.length) {
+function askQuestion() {                                      
+  // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
+  //candidateAnswer = input.question(question);
+  for(i=0;i<questions.length;i++){
     candidateAnswers[i] = input.question(questions[i]);
-    i++;
   }
+  //console.log(candidateAnswers);                
 }
 
-function gradeQuiz(candidaeteAnswers) {
-
-  //  1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  let i = 0;
-  let grade = 0;
-  let status = ''
-  console.log(`Candidate Name: ${candidateName}`);
-  while (i < questions.length) {
-    
-    if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()) {
-      grade += 20;
-    } else {
-      grade;
+function gradeQuiz(candidateAnswers) {                        
+  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
+  /*if(candidateAnswer === correctAnswer){                    
+    console.log('Your answer is correct.');                 
+  } else {                                                  
+    console.log('Your answer is not correct.')             
+  }*/
+  let numOfCorrectAns = 0;
+   console.log(`Candidate Name: ${candidateName}`);
+  for(i=0;i<candidateAnswers.length;i++){
+    console.log(`${i+1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`);
+    if(candidateAnswers[i].toLowerCase()===correctAnswers[i].toLowerCase()){
+      numOfCorrectAns = numOfCorrectAns + 1;
     }
-    console.log(`${Number([i]) + 1}) ${questions[i]} \n Your answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]} \n `);
-    i++;
   }
-
-  if (grade >= 80) {
-    status = "PASSED";
+  //console.log(numCorrect);
+    
+  let grade = 0;
+  grade = numOfCorrectAns/questions.length*100;                                                  
+  //console.log(grade);
+  console.log(`>>> Overall Grade: ${grade}% (${numOfCorrectAns} of ${questions.length} responses correct) <<<`);
+  if(grade>=80){
+    console.log(`>>> Status: PASSED <<<`);
   } else {
-    status = "FAILED";
+    console.log(`>>> Status: FAILED <<<`);
   }
-  console.log(`>>> Overall Grade: ${grade}% (${grade / 100 * 5} of 5 responses correct) <<< \n>>> Status: ${status} <<<`);
-
-  return grade;
-}  
+  return grade;                                               
+} 
 
 function runProgram() {
   askForName();
